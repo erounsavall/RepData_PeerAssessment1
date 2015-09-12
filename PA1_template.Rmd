@@ -38,6 +38,7 @@ by_date
 ```
 
 *Histogram of total number of steps per day:*
+I added extra breaks to make the histogram more informative. 
 ```{r}
 hist(by_date$steps, col = "red", breaks=40)
 ```
@@ -84,6 +85,7 @@ activityfull$steps[is.na(activityfull$steps)] <- 0
 ```
 
 *Histogram of total steps taken each day:*
+I added extra breaks to make the histogram more informative. 
 ```{r}
 full_by_date <- summarize(group_by(activityfull, date), sum(steps))
 colnames(full_by_date) <- c("date", "steps")
@@ -95,7 +97,7 @@ hist(full_by_date$steps, col = "red", breaks=40)
 mean(as.numeric(full_by_date$steps), na.rm=TRUE)
 median(as.numeric(full_by_date$steps),na.rm=TRUE)
 ```
-*Analysis:* The total steps taken each day is unchanged (as that was my strategy for assigning 0.) However, the mean and median values have decreased, which was not the intended result. And the histogram profile has changed - there are many more days with 0 steps. This has corrupted the original data. 
+*Analysis:* The total steps taken each day is unchanged (as that was my strategy for assigning 0.) However, the mean and median values have decreased, which was not the intended result. And the histogram profile has changed - there are many more days with 0 steps. This has corrupted the original data. Whoops!
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
